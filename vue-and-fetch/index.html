@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>List of posts using fake JSON server</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<style>
+		[v-cloak] {display: none}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div id="app" v-cloak>
+            <h1>Using local JSON server</h1>
+			<em>(JSON server is in ~/projects/json-server; cd into there and run 'npm run start')</em><br>
+			
+            
+
+			<input v-model="term" type="search" class=input @keyup.enter="search" placeholder="Search here...">
+			<button @click="search" class="button">Search Posts</button>
+			<button @click="CreateNew" class="button is-text">Create New Post</button>
+			<p/>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Save Timestamp</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr v-for="result in results" class="result">
+						<td>
+							<a :href="'edit.html?id='+ result.id">{{result.id}}</a>
+						</td>
+						<td>
+							{{result.title}}
+						</td>
+						<td>
+							{{result.author}}
+						</td>
+						<td>
+							{{result.savedate}}
+						</td>
+						<td>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div v-if="noResults">
+				Sorry, but no results were found.
+			</div>
+
+			<div v-if="searching">
+				<i>{{fetchInfo}}</i>
+			</div>
+
+		</div>
+
+		<script src="https://unpkg.com/vue"></script>
+		<script src="index.js"></script>
+	</body>
+</html>

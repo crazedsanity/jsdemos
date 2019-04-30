@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div id="app">
+            <form method="POST" action="http://localhost:3000/posts">
+
+                <h1>Using local JSON server</h1>
+                <em>(JSON server is in ~/projects/json-server; cd into there and run 'npm run start')</em><br>
+                
+                
+                <ul style="list-style: none;">
+                        <li>
+                            <label for="title">Post Title</label>
+                            <input id="title" name="title" value="Test title - static HTML">
+                        </li>
+                        <li>
+                            <label for="author">Author</label>
+                            <input id="author" name="author" value="Test author - static HTML">
+                        </li>
+                    </ul>
+                    
+                    <button v-on:click="create">Create</button>
+                </form>
+
+            RESPONSE: {{responseInfo}}
+        </div>
+		<script src="https://unpkg.com/vue"></script>
+	</body>
+</html>

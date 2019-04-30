@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div id="app">
+            <h1>Using local JSON server</h1>
+            <em>(JSON server is in ~/projects/json-server; cd into there and run 'npm run start')</em><br>
+
+            <br>
+            RESPONSE: {{resultText}}<br><br>
+
+            <form @submit="checkForm">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="title">Post Title</label>
+                        </td>
+                        <td>
+                            <input v-model="record.title" class="input is-primary" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="author">Author</label>
+                        </td>
+                        <td>
+                            <input v-model="record.author" class="input is-primary" required>
+                        </td>
+                    </tr>
+                </table>
+
+                <input type="submit" class="button is-primary" value="Save Record">
+                <button v-on:click="Delete" class="button is-danger">Delete</button>
+                <button v-on:click="Cancel" class="button is-text">Go back</button>
+            </form>
+            
+        </div>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="edit.js"></script>
+	</body>
+</html>
