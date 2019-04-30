@@ -1,2 +1,2 @@
-# jsdemos
-Demonstrations of Javascript-based things.
+# JavaScript Demos
+Demonstrations of Javascript-based things.  
